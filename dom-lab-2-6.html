@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Practice Worksheets</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+    .intro {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1.1em;
+    }
+    .worksheet {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .worksheet h2 {
+      color: #3498db;
+      border-bottom: 3px solid #3498db;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+    .problem {
+      background: #f8f9fa;
+      border-left: 4px solid #3498db;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .problem h3 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+    .problem p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .html-structure {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      overflow-x: auto;
+    }
+    .code-area {
+      background: #fff;
+      border: 2px solid #3498db;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+    }
+    .hint {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 10px 15px;
+      margin-top: 15px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .success {
+      color: #27ae60;
+      font-weight: bold;
+    }
+    code {
+      background: #e8e8e8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      color: #e74c3c;
+    }
+    .tag {
+      color: #e67e22;
+    }
+    .preview {
+      border: 2px dashed #95a5a6;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 6px;
+      min-height: 100px;
+    }
+    .nav {
+      position: sticky;
+      top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .nav h3 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    .nav a {
+      display: block;
+      color: #3498db;
+      text-decoration: none;
+      padding: 8px 12px;
+      margin: 5px 0;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .nav a:hover {
+      background: #ebf5fb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DOM Mastery Worksheets</h1>
+    <p class="intro">Practice your DOM manipulation skills with these exercises. Fill in the JavaScript code to complete each task!</p>
+    
+    <div class="nav">
+      <h3>Quick Navigation</h3>
+      <a href="#selection">Part 1: DOM Selection</a>
+      <a href="#traversal-siblings">Part 2: Sibling Traversal</a>
+      <a href="#traversal-parents">Part 3: Parent Traversal</a>
+      <a href="#traversal-descendants">Part 4: Descendant Traversal</a>
+      <a href="#creation">Part 5: Element Creation</a>
+    </div>
+
+    <!-- PART 1: SELECTION -->
+    <div class="worksheet" id="selection">
+      <h2>Part 1: DOM Selection (querySelector & querySelectorAll)</h2>
+      
+      <div class="problem">
+        <h3>Problem 1: Select by ID</h3>
+        <p>Select the element with id <code>main-title</code> and change its text to "DOM Selection Master"</p>
+        
+        <div class="html-structure">
+&lt;h1 id="main-title"&gt;Original Title&lt;/h1&gt;
+        </div>
+        
+        <div class="code-area">
+const title = ____________________________;
+title.textContent = ____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>document.querySelector('#main-title')</code>
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 2: Select by Class</h3>
+        <p>Select all elements with the class <code>highlight</code> and change their background color to yellow</p>
+        
+        <div class="html-structure">
+&lt;p class="highlight"&gt;First paragraph&lt;/p&gt;
+&lt;p&gt;Normal paragraph&lt;/p&gt;
+&lt;p class="highlight"&gt;Third paragraph&lt;/p&gt;
+        </div>
+        
+        <div class="code-area">
+const highlighted = ____________________________;
+for (let i = 0; i < highlighted.length; i++) {
+    highlighted[i].style.backgroundColor = ____________________________;
+}
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>querySelectorAll('.highlight')</code> and loop through results
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 3: Select by Tag Name</h3>
+        <p>Select all <code>&lt;li&gt;</code> elements and add the class "list-item" to each one</p>
+        
+        <div class="html-structure">
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+        </div>
+        
+        <div class="code-area">
+const items = ____________________________;
+for (let item of items) {
+    item.____________________________;
+}
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>querySelectorAll('li')</code> and <code>classList.add()</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 2: SIBLING TRAVERSAL -->
+    <div class="worksheet" id="traversal-siblings">
+      <h2>Part 2: Sibling Traversal</h2>
+      
+      <div class="problem">
+        <h3>Problem 4: Next Sibling</h3>
+        <p>Find the element with id <code>second</code> and change the text of its next sibling to "I'm the third item!"</p>
+        
+        <div class="html-structure">
+&lt;div&gt;
+    &lt;p&gt;First&lt;/p&gt;
+    &lt;p id="second"&gt;Second&lt;/p&gt;
+    &lt;p&gt;Third&lt;/p&gt;
+&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const second = document.querySelector('#second');
+const third = ____________________________;
+third.textContent = ____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>.nextElementSibling</code>
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 5: Previous Sibling</h3>
+        <p>Find the element with class <code>middle</code> and add a red border to its previous sibling</p>
+        
+        <div class="html-structure">
+&lt;div class="box"&gt;Box 1&lt;/div&gt;
+&lt;div class="box middle"&gt;Box 2&lt;/div&gt;
+&lt;div class="box"&gt;Box 3&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const middle = ____________________________;
+const previous = ____________________________;
+previous.style.border = ____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>.previousElementSibling</code> and set border to "3px solid red"
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 6: All Siblings</h3>
+        <p>Find the element with id <code>target</code>. Change the color of its previous sibling to blue and its next sibling to green.</p>
+        
+        <div class="html-structure">
+&lt;span&gt;Before&lt;/span&gt;
+&lt;span id="target"&gt;Target&lt;/span&gt;
+&lt;span&gt;After&lt;/span&gt;
+        </div>
+        
+        <div class="code-area">
+const target = ____________________________;
+target._____________________________.style.color = 'blue';
+target._____________________________.style.color = 'green';
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 3: PARENT TRAVERSAL -->
+    <div class="worksheet" id="traversal-parents">
+      <h2>Part 3: Parent Traversal</h2>
+      
+      <div class="problem">
+        <h3>Problem 7: Direct Parent</h3>
+        <p>Find the button with id <code>myBtn</code> and add the class "btn-container" to its parent</p>
+        
+        <div class="html-structure">
+&lt;div&gt;
+    &lt;button id="myBtn"&gt;Click Me&lt;/button&gt;
+&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const btn = ____________________________;
+const parent = ____________________________;
+parent.____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>.parentElement</code>
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 8: Ancestor with Class</h3>
+        <p>Find the span with id <code>deep</code> and change the background of its closest ancestor with class <code>container</code> to lightblue</p>
+        
+        <div class="html-structure">
+&lt;div class="container"&gt;
+    &lt;section&gt;
+        &lt;p&gt;
+            &lt;span id="deep"&gt;Deep Element&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/section&gt;
+&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const deep = ____________________________;
+const container = ____________________________;
+container.style.backgroundColor = ____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>.closest('.container')</code>
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 9: Multiple Parent Levels</h3>
+        <p>Find the element with id <code>child</code>. Go up two parent levels and set its border to "2px solid orange"</p>
+        
+        <div class="html-structure">
+&lt;div&gt;
+    &lt;section&gt;
+        &lt;p id="child"&gt;Child&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const child = ____________________________;
+const grandparent = ____________________________;
+grandparent.style.border = ____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Chain <code>.parentElement</code> twice: <code>.parentElement.parentElement</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 4: DESCENDANT TRAVERSAL -->
+    <div class="worksheet" id="traversal-descendants">
+      <h2>Part 4: Descendant Traversal</h2>
+      
+      <div class="problem">
+        <h3>Problem 10: Direct Children</h3>
+        <p>Find the ul with id <code>myList</code>. Access its first child and change its text to "First Item (Modified)"</p>
+        
+        <div class="html-structure">
+&lt;ul id="myList"&gt;
+    &lt;li&gt;First Item&lt;/li&gt;
+    &lt;li&gt;Second Item&lt;/li&gt;
+    &lt;li&gt;Third Item&lt;/li&gt;
+&lt;/ul&gt;
+        </div>
+        
+        <div class="code-area">
+const list = ____________________________;
+const firstItem = ____________________________;
+firstItem.textContent = ____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>.firstElementChild</code>
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 11: All Children</h3>
+        <p>Find the div with id <code>parent</code>. Loop through all its children and add the class "child-item" to each</p>
+        
+        <div class="html-structure">
+&lt;div id="parent"&gt;
+    &lt;div&gt;Child 1&lt;/div&gt;
+    &lt;div&gt;Child 2&lt;/div&gt;
+    &lt;div&gt;Child 3&lt;/div&gt;
+&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const parent = ____________________________;
+const children = ____________________________;
+for (let child of children) {
+    ____________________________;
+}
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>.children</code> property
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 12: Query Within Element</h3>
+        <p>Find the section with id <code>content</code>. Then find all paragraphs WITHIN that section and change their color to purple</p>
+        
+        <div class="html-structure">
+&lt;section id="content"&gt;
+    &lt;p&gt;Paragraph 1&lt;/p&gt;
+    &lt;p&gt;Paragraph 2&lt;/p&gt;
+&lt;/section&gt;
+&lt;p&gt;Outside paragraph (don't change this)&lt;/p&gt;
+        </div>
+        
+        <div class="code-area">
+const section = ____________________________;
+const paragraphs = ____________________________;
+for (let p of paragraphs) {
+    p.style.color = ____________________________;
+}
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>section.querySelectorAll('p')</code> to query within an element
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 5: ELEMENT CREATION -->
+    <div class="worksheet" id="creation">
+      <h2>Part 5: Element Creation</h2>
+      
+      <div class="problem">
+        <h3>Problem 13: Create and Append Simple Element</h3>
+        <p>Create a new paragraph element with the text "Hello, World!" and append it to the div with id <code>output</code></p>
+        
+        <div class="html-structure">
+&lt;div id="output"&gt;&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const output = document.querySelector('#output');
+const p = ____________________________;
+p.textContent = ____________________________;
+output.____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>document.createElement('p')</code> and <code>appendChild()</code>
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 14: Create Element with Attributes</h3>
+        <p>Create a new div with id "card", class "product-card", and text content "Product Name". Append it to the element with id <code>container</code></p>
+        
+        <div class="html-structure">
+&lt;div id="container"&gt;&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const container = document.querySelector('#container');
+const card = ____________________________;
+card.id = ____________________________;
+card._____________________________ = 'product-card';
+card.textContent = ____________________________;
+container.appendChild(card);
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Set <code>id</code>, <code>className</code>, and <code>textContent</code> properties
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 15: Create List Items</h3>
+        <p>Create 3 new list items with text "Item 1", "Item 2", and "Item 3". Append all of them to the ul with id <code>todoList</code></p>
+        
+        <div class="html-structure">
+&lt;ul id="todoList"&gt;&lt;/ul&gt;
+        </div>
+        
+        <div class="code-area">
+const list = document.querySelector('#todoList');
+
+const li1 = ____________________________;
+li1.textContent = ____________________________;
+list.____________________________;
+
+const li2 = ____________________________;
+li2.textContent = ____________________________;
+list.____________________________;
+
+const li3 = ____________________________;
+li3.textContent = ____________________________;
+list.____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Create three separate <code>&lt;li&gt;</code> elements and append each one
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 16: Create Nested Structure</h3>
+        <p>Create a div with class "card". Inside it, create an h3 with text "Title" and a p with text "Description". Append the h3 and p to the div, then append the div to the element with id <code>cards</code></p>
+        
+        <div class="html-structure">
+&lt;div id="cards"&gt;&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const cards = document.querySelector('#cards');
+
+const card = ____________________________;
+card.className = ____________________________;
+
+const heading = ____________________________;
+heading.textContent = ____________________________;
+
+const description = ____________________________;
+description.textContent = ____________________________;
+
+card.____________________________;
+card.____________________________;
+cards.____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Create three elements, append the h3 and p to the card, then append the card to cards
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 17: Create Button with Style</h3>
+        <p>Create a button element with text "Click Me!", id "myButton", and inline styles: backgroundColor = "blue", color = "white", padding = "10px 20px". Append it to the div with id <code>btnContainer</code></p>
+        
+        <div class="html-structure">
+&lt;div id="btnContainer"&gt;&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const container = document.querySelector('#btnContainer');
+
+const button = ____________________________;
+button.textContent = ____________________________;
+button.id = ____________________________;
+button.style.backgroundColor = ____________________________;
+button.style.color = ____________________________;
+button.style.padding = ____________________________;
+
+container.____________________________;
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 18: Create Image Element</h3>
+        <p>Create an img element with src "https://via.placeholder.com/150", alt text "Placeholder", and width "150". Append it to the div with id <code>gallery</code></p>
+        
+        <div class="html-structure">
+&lt;div id="gallery"&gt;&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const gallery = document.querySelector('#gallery');
+
+const img = ____________________________;
+img.src = ____________________________;
+img.alt = ____________________________;
+img.width = ____________________________;
+
+gallery.____________________________;
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use <code>document.createElement('img')</code> and set src, alt, and width properties
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 19: Create Table Row</h3>
+        <p>Create a table row (&lt;tr&gt;) with three table cells (&lt;td&gt;) containing "Name", "Age", "City". Append the row to the tbody with id <code>tableBody</code></p>
+        
+        <div class="html-structure">
+&lt;table&gt;
+    &lt;tbody id="tableBody"&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+        </div>
+        
+        <div class="code-area">
+const tbody = document.querySelector('#tableBody');
+
+const row = ____________________________;
+
+const cell1 = ____________________________;
+cell1.textContent = ____________________________;
+
+const cell2 = ____________________________;
+cell2.textContent = ____________________________;
+
+const cell3 = ____________________________;
+cell3.textContent = ____________________________;
+
+row.appendChild(cell1);
+row.____________________________;
+row.____________________________;
+
+tbody.____________________________;
+        </div>
+      </div>
+
+      <div class="problem">
+        <h3>Problem 20: Create Multiple Elements with Loop</h3>
+        <p>Use a loop to create 5 div elements. Each should have the text "Box [number]" (where number is 1-5) and class "box". Append all of them to the div with id <code>boxContainer</code></p>
+        
+        <div class="html-structure">
+&lt;div id="boxContainer"&gt;&lt;/div&gt;
+        </div>
+        
+        <div class="code-area">
+const container = document.querySelector('#boxContainer');
+
+for (let i = 1; i <= 5; i++) {
+    const box = ____________________________;
+    box.textContent = ____________________________;
+    box.className = ____________________________;
+    container.____________________________;
+}
+        </div>
+        
+        <div class="hint">
+          💡 <strong>Hint:</strong> Use string concatenation: <code>'Box ' + i</code>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #27ae60; color: white; padding: 30px; text-align: center; border-radius: 12px; margin-top: 40px;">
+      <h2>Congratulations!</h2>
+      <p style="font-size: 1.2em; margin-top: 10px;">You've completed all DOM manipulation exercises. You're now ready for Events, AJAX, and State Management!</p>
+    </div>
+  </div>
+</body>
+</html>
