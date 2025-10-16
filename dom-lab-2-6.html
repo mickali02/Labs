@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DOM Practice Worksheets</title>
+  <title>DOM Practice Worksheets - Solved</title>
   <style>
     * {
       margin: 0;
@@ -106,7 +106,14 @@
       padding: 20px;
       margin: 15px 0;
       border-radius: 6px;
-      min-height: 100px;
+      min-height: 50px;
+    }
+    .preview h4 {
+        margin-bottom: 10px;
+        color: #7f8c8d;
+        font-weight: 500;
+        border-bottom: 1px solid #bdc3c7;
+        padding-bottom: 5px;
     }
     .nav {
       position: sticky;
@@ -116,6 +123,7 @@
       border-radius: 12px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       margin-bottom: 30px;
+      z-index: 10;
     }
     .nav h3 {
       margin-bottom: 15px;
@@ -156,65 +164,22 @@
       <div class="problem">
         <h3>Problem 1: Select by ID</h3>
         <p>Select the element with id <code>main-title</code> and change its text to "DOM Selection Master"</p>
-        
-        <div class="html-structure">
-&lt;h1 id="main-title"&gt;Original Title&lt;/h1&gt;
-        </div>
-        
-        <div class="code-area">
-const title = ____________________________;
-title.textContent = ____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>document.querySelector('#main-title')</code>
-        </div>
+        <div class="html-structure">&lt;h1 id="main-title"&gt;Original Title&lt;/h1&gt;</div>
+        <div class="preview" id="p1-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 2: Select by Class</h3>
         <p>Select all elements with the class <code>highlight</code> and change their background color to yellow</p>
-        
-        <div class="html-structure">
-&lt;p class="highlight"&gt;First paragraph&lt;/p&gt;
-&lt;p&gt;Normal paragraph&lt;/p&gt;
-&lt;p class="highlight"&gt;Third paragraph&lt;/p&gt;
-        </div>
-        
-        <div class="code-area">
-const highlighted = ____________________________;
-for (let i = 0; i < highlighted.length; i++) {
-    highlighted[i].style.backgroundColor = ____________________________;
-}
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>querySelectorAll('.highlight')</code> and loop through results
-        </div>
+        <div class="html-structure">&lt;p class="highlight"&gt;First paragraph&lt;/p&gt;&lt;p&gt;Normal paragraph&lt;/p&gt;&lt;p class="highlight"&gt;Third paragraph&lt;/p&gt;</div>
+        <div class="preview" id="p2-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 3: Select by Tag Name</h3>
         <p>Select all <code>&lt;li&gt;</code> elements and add the class "list-item" to each one</p>
-        
-        <div class="html-structure">
-&lt;ul&gt;
-    &lt;li&gt;Item 1&lt;/li&gt;
-    &lt;li&gt;Item 2&lt;/li&gt;
-    &lt;li&gt;Item 3&lt;/li&gt;
-&lt;/ul&gt;
-        </div>
-        
-        <div class="code-area">
-const items = ____________________________;
-for (let item of items) {
-    item.____________________________;
-}
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>querySelectorAll('li')</code> and <code>classList.add()</code>
-        </div>
+        <div class="html-structure">&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;li&gt;Item 3&lt;/li&gt;&lt;/ul&gt;</div>
+        <div class="preview" id="p3-preview"><h4>Live Preview:</h4></div>
       </div>
     </div>
 
@@ -225,62 +190,22 @@ for (let item of items) {
       <div class="problem">
         <h3>Problem 4: Next Sibling</h3>
         <p>Find the element with id <code>second</code> and change the text of its next sibling to "I'm the third item!"</p>
-        
-        <div class="html-structure">
-&lt;div&gt;
-    &lt;p&gt;First&lt;/p&gt;
-    &lt;p id="second"&gt;Second&lt;/p&gt;
-    &lt;p&gt;Third&lt;/p&gt;
-&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const second = document.querySelector('#second');
-const third = ____________________________;
-third.textContent = ____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>.nextElementSibling</code>
-        </div>
+        <div class="html-structure">&lt;div&gt;&lt;p&gt;First&lt;/p&gt;&lt;p id="second"&gt;Second&lt;/p&gt;&lt;p&gt;Third&lt;/p&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p4-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 5: Previous Sibling</h3>
         <p>Find the element with class <code>middle</code> and add a red border to its previous sibling</p>
-        
-        <div class="html-structure">
-&lt;div class="box"&gt;Box 1&lt;/div&gt;
-&lt;div class="box middle"&gt;Box 2&lt;/div&gt;
-&lt;div class="box"&gt;Box 3&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const middle = ____________________________;
-const previous = ____________________________;
-previous.style.border = ____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>.previousElementSibling</code> and set border to "3px solid red"
-        </div>
+        <div class="html-structure">&lt;div class="box"&gt;Box 1&lt;/div&gt;&lt;div class="box middle"&gt;Box 2&lt;/div&gt;&lt;div class="box"&gt;Box 3&lt;/div&gt;</div>
+        <div class="preview" id="p5-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 6: All Siblings</h3>
         <p>Find the element with id <code>target</code>. Change the color of its previous sibling to blue and its next sibling to green.</p>
-        
-        <div class="html-structure">
-&lt;span&gt;Before&lt;/span&gt;
-&lt;span id="target"&gt;Target&lt;/span&gt;
-&lt;span&gt;After&lt;/span&gt;
-        </div>
-        
-        <div class="code-area">
-const target = ____________________________;
-target._____________________________.style.color = 'blue';
-target._____________________________.style.color = 'green';
-        </div>
+        <div class="html-structure">&lt;span&gt;Before&lt;/span&gt;&lt;span id="target"&gt;Target&lt;/span&gt;&lt;span&gt;After&lt;/span&gt;</div>
+        <div class="preview" id="p6-preview"><h4>Live Preview:</h4></div>
       </div>
     </div>
 
@@ -291,70 +216,22 @@ target._____________________________.style.color = 'green';
       <div class="problem">
         <h3>Problem 7: Direct Parent</h3>
         <p>Find the button with id <code>myBtn</code> and add the class "btn-container" to its parent</p>
-        
-        <div class="html-structure">
-&lt;div&gt;
-    &lt;button id="myBtn"&gt;Click Me&lt;/button&gt;
-&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const btn = ____________________________;
-const parent = ____________________________;
-parent.____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>.parentElement</code>
-        </div>
+        <div class="html-structure">&lt;div&gt;&lt;button id="myBtn"&gt;Click Me&lt;/button&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p7-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 8: Ancestor with Class</h3>
         <p>Find the span with id <code>deep</code> and change the background of its closest ancestor with class <code>container</code> to lightblue</p>
-        
-        <div class="html-structure">
-&lt;div class="container"&gt;
-    &lt;section&gt;
-        &lt;p&gt;
-            &lt;span id="deep"&gt;Deep Element&lt;/span&gt;
-        &lt;/p&gt;
-    &lt;/section&gt;
-&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const deep = ____________________________;
-const container = ____________________________;
-container.style.backgroundColor = ____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>.closest('.container')</code>
-        </div>
+        <div class="html-structure">&lt;div class="container"&gt;&lt;section&gt;&lt;p&gt;&lt;span id="deep"&gt;Deep Element&lt;/span&gt;&lt;/p&gt;&lt;/section&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p8-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 9: Multiple Parent Levels</h3>
         <p>Find the element with id <code>child</code>. Go up two parent levels and set its border to "2px solid orange"</p>
-        
-        <div class="html-structure">
-&lt;div&gt;
-    &lt;section&gt;
-        &lt;p id="child"&gt;Child&lt;/p&gt;
-    &lt;/section&gt;
-&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const child = ____________________________;
-const grandparent = ____________________________;
-grandparent.style.border = ____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Chain <code>.parentElement</code> twice: <code>.parentElement.parentElement</code>
-        </div>
+        <div class="html-structure">&lt;div&gt;&lt;section&gt;&lt;p id="child"&gt;Child&lt;/p&gt;&lt;/section&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p9-preview"><h4>Live Preview:</h4></div>
       </div>
     </div>
 
@@ -365,74 +242,22 @@ grandparent.style.border = ____________________________;
       <div class="problem">
         <h3>Problem 10: Direct Children</h3>
         <p>Find the ul with id <code>myList</code>. Access its first child and change its text to "First Item (Modified)"</p>
-        
-        <div class="html-structure">
-&lt;ul id="myList"&gt;
-    &lt;li&gt;First Item&lt;/li&gt;
-    &lt;li&gt;Second Item&lt;/li&gt;
-    &lt;li&gt;Third Item&lt;/li&gt;
-&lt;/ul&gt;
-        </div>
-        
-        <div class="code-area">
-const list = ____________________________;
-const firstItem = ____________________________;
-firstItem.textContent = ____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>.firstElementChild</code>
-        </div>
+        <div class="html-structure">&lt;ul id="myList"&gt;&lt;li&gt;First Item&lt;/li&gt;&lt;li&gt;Second Item&lt;/li&gt;&lt;li&gt;Third Item&lt;/li&gt;&lt;/ul&gt;</div>
+        <div class="preview" id="p10-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 11: All Children</h3>
         <p>Find the div with id <code>parent</code>. Loop through all its children and add the class "child-item" to each</p>
-        
-        <div class="html-structure">
-&lt;div id="parent"&gt;
-    &lt;div&gt;Child 1&lt;/div&gt;
-    &lt;div&gt;Child 2&lt;/div&gt;
-    &lt;div&gt;Child 3&lt;/div&gt;
-&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const parent = ____________________________;
-const children = ____________________________;
-for (let child of children) {
-    ____________________________;
-}
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>.children</code> property
-        </div>
+        <div class="html-structure">&lt;div id="parent"&gt;&lt;div&gt;Child 1&lt;/div&gt;&lt;div&gt;Child 2&lt;/div&gt;&lt;div&gt;Child 3&lt;/div&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p11-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 12: Query Within Element</h3>
         <p>Find the section with id <code>content</code>. Then find all paragraphs WITHIN that section and change their color to purple</p>
-        
-        <div class="html-structure">
-&lt;section id="content"&gt;
-    &lt;p&gt;Paragraph 1&lt;/p&gt;
-    &lt;p&gt;Paragraph 2&lt;/p&gt;
-&lt;/section&gt;
-&lt;p&gt;Outside paragraph (don't change this)&lt;/p&gt;
-        </div>
-        
-        <div class="code-area">
-const section = ____________________________;
-const paragraphs = ____________________________;
-for (let p of paragraphs) {
-    p.style.color = ____________________________;
-}
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>section.querySelectorAll('p')</code> to query within an element
-        </div>
+        <div class="html-structure">&lt;section id="content"&gt;&lt;p&gt;Paragraph 1&lt;/p&gt;&lt;p&gt;Paragraph 2&lt;/p&gt;&lt;/section&gt;&lt;p&gt;Outside paragraph (don't change this)&lt;/p&gt;</div>
+        <div class="preview" id="p12-preview"><h4>Live Preview:</h4></div>
       </div>
     </div>
 
@@ -443,204 +268,57 @@ for (let p of paragraphs) {
       <div class="problem">
         <h3>Problem 13: Create and Append Simple Element</h3>
         <p>Create a new paragraph element with the text "Hello, World!" and append it to the div with id <code>output</code></p>
-        
-        <div class="html-structure">
-&lt;div id="output"&gt;&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const output = document.querySelector('#output');
-const p = ____________________________;
-p.textContent = ____________________________;
-output.____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>document.createElement('p')</code> and <code>appendChild()</code>
-        </div>
+        <div class="html-structure">&lt;div id="output"&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p13-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 14: Create Element with Attributes</h3>
         <p>Create a new div with id "card", class "product-card", and text content "Product Name". Append it to the element with id <code>container</code></p>
-        
-        <div class="html-structure">
-&lt;div id="container"&gt;&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const container = document.querySelector('#container');
-const card = ____________________________;
-card.id = ____________________________;
-card._____________________________ = 'product-card';
-card.textContent = ____________________________;
-container.appendChild(card);
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Set <code>id</code>, <code>className</code>, and <code>textContent</code> properties
-        </div>
+        <div class="html-structure">&lt;div id="container"&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p14-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 15: Create List Items</h3>
         <p>Create 3 new list items with text "Item 1", "Item 2", and "Item 3". Append all of them to the ul with id <code>todoList</code></p>
-        
-        <div class="html-structure">
-&lt;ul id="todoList"&gt;&lt;/ul&gt;
-        </div>
-        
-        <div class="code-area">
-const list = document.querySelector('#todoList');
-
-const li1 = ____________________________;
-li1.textContent = ____________________________;
-list.____________________________;
-
-const li2 = ____________________________;
-li2.textContent = ____________________________;
-list.____________________________;
-
-const li3 = ____________________________;
-li3.textContent = ____________________________;
-list.____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Create three separate <code>&lt;li&gt;</code> elements and append each one
-        </div>
+        <div class="html-structure">&lt;ul id="todoList"&gt;&lt;/ul&gt;</div>
+        <div class="preview" id="p15-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 16: Create Nested Structure</h3>
         <p>Create a div with class "card". Inside it, create an h3 with text "Title" and a p with text "Description". Append the h3 and p to the div, then append the div to the element with id <code>cards</code></p>
-        
-        <div class="html-structure">
-&lt;div id="cards"&gt;&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const cards = document.querySelector('#cards');
-
-const card = ____________________________;
-card.className = ____________________________;
-
-const heading = ____________________________;
-heading.textContent = ____________________________;
-
-const description = ____________________________;
-description.textContent = ____________________________;
-
-card.____________________________;
-card.____________________________;
-cards.____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Create three elements, append the h3 and p to the card, then append the card to cards
-        </div>
+        <div class="html-structure">&lt;div id="cards"&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p16-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 17: Create Button with Style</h3>
         <p>Create a button element with text "Click Me!", id "myButton", and inline styles: backgroundColor = "blue", color = "white", padding = "10px 20px". Append it to the div with id <code>btnContainer</code></p>
-        
-        <div class="html-structure">
-&lt;div id="btnContainer"&gt;&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const container = document.querySelector('#btnContainer');
-
-const button = ____________________________;
-button.textContent = ____________________________;
-button.id = ____________________________;
-button.style.backgroundColor = ____________________________;
-button.style.color = ____________________________;
-button.style.padding = ____________________________;
-
-container.____________________________;
-        </div>
+        <div class="html-structure">&lt;div id="btnContainer"&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p17-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 18: Create Image Element</h3>
         <p>Create an img element with src "https://via.placeholder.com/150", alt text "Placeholder", and width "150". Append it to the div with id <code>gallery</code></p>
-        
-        <div class="html-structure">
-&lt;div id="gallery"&gt;&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const gallery = document.querySelector('#gallery');
-
-const img = ____________________________;
-img.src = ____________________________;
-img.alt = ____________________________;
-img.width = ____________________________;
-
-gallery.____________________________;
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use <code>document.createElement('img')</code> and set src, alt, and width properties
-        </div>
+        <div class="html-structure">&lt;div id="gallery"&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p18-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 19: Create Table Row</h3>
         <p>Create a table row (&lt;tr&gt;) with three table cells (&lt;td&gt;) containing "Name", "Age", "City". Append the row to the tbody with id <code>tableBody</code></p>
-        
-        <div class="html-structure">
-&lt;table&gt;
-    &lt;tbody id="tableBody"&gt;&lt;/tbody&gt;
-&lt;/table&gt;
-        </div>
-        
-        <div class="code-area">
-const tbody = document.querySelector('#tableBody');
-
-const row = ____________________________;
-
-const cell1 = ____________________________;
-cell1.textContent = ____________________________;
-
-const cell2 = ____________________________;
-cell2.textContent = ____________________________;
-
-const cell3 = ____________________________;
-cell3.textContent = ____________________________;
-
-row.appendChild(cell1);
-row.____________________________;
-row.____________________________;
-
-tbody.____________________________;
-        </div>
+        <div class="html-structure">&lt;table&gt;&lt;tbody id="tableBody"&gt;&lt;/tbody&gt;&lt;/table&gt;</div>
+        <div class="preview" id="p19-preview"><h4>Live Preview:</h4></div>
       </div>
 
       <div class="problem">
         <h3>Problem 20: Create Multiple Elements with Loop</h3>
         <p>Use a loop to create 5 div elements. Each should have the text "Box [number]" (where number is 1-5) and class "box". Append all of them to the div with id <code>boxContainer</code></p>
-        
-        <div class="html-structure">
-&lt;div id="boxContainer"&gt;&lt;/div&gt;
-        </div>
-        
-        <div class="code-area">
-const container = document.querySelector('#boxContainer');
-
-for (let i = 1; i <= 5; i++) {
-    const box = ____________________________;
-    box.textContent = ____________________________;
-    box.className = ____________________________;
-    container.____________________________;
-}
-        </div>
-        
-        <div class="hint">
-          💡 <strong>Hint:</strong> Use string concatenation: <code>'Box ' + i</code>
-        </div>
+        <div class="html-structure">&lt;div id="boxContainer"&gt;&lt;/div&gt;</div>
+        <div class="preview" id="p20-preview"><h4>Live Preview:</h4></div>
       </div>
     </div>
 
@@ -649,5 +327,207 @@ for (let i = 1; i <= 5; i++) {
       <p style="font-size: 1.2em; margin-top: 10px;">You've completed all DOM manipulation exercises. You're now ready for Events, AJAX, and State Management!</p>
     </div>
   </div>
+
+  <!-- SCRIPT WITH ALL SOLUTIONS -->
+  <script>
+    // Wait for the whole page to load before running scripts
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // PART 1: SELECTION
+      // Problem 1
+      const p1Preview = document.getElementById('p1-preview');
+      p1Preview.innerHTML += '<h1 id="main-title">Original Title</h1>';
+      p1Preview.querySelector('#main-title').textContent = "DOM Selection Master";
+      
+      // Problem 2
+      const p2Preview = document.getElementById('p2-preview');
+      p2Preview.innerHTML += `<p class="highlight">First paragraph</p><p>Normal paragraph</p><p class="highlight">Third paragraph</p>`;
+      p2Preview.querySelectorAll('.highlight').forEach(el => el.style.backgroundColor = 'yellow');
+      
+      // Problem 3
+      const p3Preview = document.getElementById('p3-preview');
+      p3Preview.innerHTML += `<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>`;
+      p3Preview.querySelectorAll('li').forEach(li => li.classList.add('list-item'));
+
+      // PART 2: SIBLING TRAVERSAL
+      // Problem 4
+      const p4Preview = document.getElementById('p4-preview');
+      p4Preview.innerHTML += `<div><p>First</p><p id="second">Second</p><p>Third</p></div>`;
+      const second = p4Preview.querySelector('#second');
+      if(second && second.nextElementSibling) second.nextElementSibling.textContent = "I'm the third item!";
+
+      // Problem 5
+      const p5Preview = document.getElementById('p5-preview');
+      p5Preview.innerHTML += `<div class="box">Box 1</div><div class="box middle">Box 2</div><div class="box">Box 3</div>`;
+      const middle = p5Preview.querySelector('.middle');
+      if(middle && middle.previousElementSibling) middle.previousElementSibling.style.border = "3px solid red";
+
+      // Problem 6
+      const p6Preview = document.getElementById('p6-preview');
+      p6Preview.innerHTML += `<span>Before</span> <span id="target">Target</span> <span>After</span>`;
+      const target = p6Preview.querySelector('#target');
+      if(target) {
+        if(target.previousElementSibling) target.previousElementSibling.style.color = 'blue';
+        if(target.nextElementSibling) target.nextElementSibling.style.color = 'green';
+      }
+
+      // PART 3: PARENT TRAVERSAL
+      // Problem 7
+      const p7Preview = document.getElementById('p7-preview');
+      p7Preview.innerHTML += `<div style="border:1px solid #ccc; padding:10px;"><button id="myBtn">Click Me</button></div>`;
+      const btn = p7Preview.querySelector('#myBtn');
+      if(btn && btn.parentElement) btn.parentElement.classList.add('btn-container');
+
+      // Problem 8
+      const p8Preview = document.getElementById('p8-preview');
+      p8Preview.innerHTML += `<div class="container" style="padding: 20px; border: 1px solid black;"><section><p><span id="deep">Deep Element</span></p></section></div>`;
+      const deep = p8Preview.querySelector('#deep');
+      if(deep) {
+        const container = deep.closest('.container');
+        if(container) container.style.backgroundColor = 'lightblue';
+      }
+
+      // Problem 9
+      const p9Preview = document.getElementById('p9-preview');
+      p9Preview.innerHTML += `<div id="grandparent"><section id="parent"><p id="child">Child</p></section></div>`;
+      const child = p9Preview.querySelector('#child');
+      if(child && child.parentElement && child.parentElement.parentElement) {
+        child.parentElement.parentElement.style.border = "2px solid orange";
+      }
+
+      // PART 4: DESCENDANT TRAVERSAL
+      // Problem 10
+      const p10Preview = document.getElementById('p10-preview');
+      p10Preview.innerHTML += `<ul id="myList"><li>First Item</li><li>Second Item</li><li>Third Item</li></ul>`;
+      const list = p10Preview.querySelector('#myList');
+      if(list && list.firstElementChild) list.firstElementChild.textContent = "First Item (Modified)";
+
+      // Problem 11
+      const p11Preview = document.getElementById('p11-preview');
+      p11Preview.innerHTML += `<div id="parent"><div>Child 1</div><div>Child 2</div><div>Child 3</div></div>`;
+      const parentDiv = p11Preview.querySelector('#parent');
+      if(parentDiv) {
+        Array.from(parentDiv.children).forEach(child => child.classList.add('child-item'));
+      }
+
+      // Problem 12
+      const p12Preview = document.getElementById('p12-preview');
+      p12Preview.innerHTML += `<section id="content"><p>Paragraph 1</p><p>Paragraph 2</p></section><p>Outside paragraph (don't change this)</p>`;
+      const section = p12Preview.querySelector('#content');
+      if(section) {
+        section.querySelectorAll('p').forEach(p => p.style.color = 'purple');
+      }
+
+      // PART 5: ELEMENT CREATION
+      // Problem 13
+      const p13Preview = document.getElementById('p13-preview');
+      p13Preview.innerHTML += `<div id="output"></div>`;
+      const output = p13Preview.querySelector('#output');
+      if(output) {
+        const pEl = document.createElement('p');
+        pEl.textContent = "Hello, World!";
+        output.appendChild(pEl);
+      }
+
+      // Problem 14
+      const p14Preview = document.getElementById('p14-preview');
+      p14Preview.innerHTML += `<div id="container"></div>`;
+      const containerDiv = p14Preview.querySelector('#container');
+      if(containerDiv) {
+        const card = document.createElement('div');
+        card.id = 'card';
+        card.className = 'product-card';
+        card.textContent = 'Product Name';
+        containerDiv.appendChild(card);
+      }
+
+      // Problem 15
+      const p15Preview = document.getElementById('p15-preview');
+      p15Preview.innerHTML += `<ul id="todoList"></ul>`;
+      const todoList = p15Preview.querySelector('#todoList');
+      if(todoList) {
+        ['Item 1','Item 2','Item 3'].forEach(text => {
+          const li = document.createElement('li');
+          li.textContent = text;
+          todoList.appendChild(li);
+        });
+      }
+
+      // Problem 16
+      const p16Preview = document.getElementById('p16-preview');
+      p16Preview.innerHTML += `<div id="cards"></div>`;
+      const cards = p16Preview.querySelector('#cards');
+      if(cards) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.border = '1px solid grey';
+        card.style.padding = '10px';
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Title';
+        const p = document.createElement('p');
+        p.textContent = 'Description';
+        card.appendChild(h3);
+        card.appendChild(p);
+        cards.appendChild(card);
+      }
+
+      // Problem 17
+      const p17Preview = document.getElementById('p17-preview');
+      p17Preview.innerHTML += `<div id="btnContainer"></div>`;
+      const btnContainer = p17Preview.querySelector('#btnContainer');
+      if(btnContainer) {
+        const button = document.createElement('button');
+        button.textContent = 'Click Me!';
+        button.id = 'myButton';
+        button.style.backgroundColor = 'blue';
+        button.style.color = 'white';
+        button.style.padding = '10px 20px';
+        btnContainer.appendChild(button);
+      }
+
+      // Problem 18
+      const p18Preview = document.getElementById('p18-preview');
+      p18Preview.innerHTML += `<div id="gallery"></div>`;
+      const gallery = p18Preview.querySelector('#gallery');
+      if(gallery) {
+        const img = document.createElement('img');
+        img.src = 'https://via.placeholder.com/150';
+        img.alt = 'Placeholder';
+        img.width = 150;
+        gallery.appendChild(img);
+      }
+
+      // Problem 19
+      const p19Preview = document.getElementById('p19-preview');
+      p19Preview.innerHTML += `<table border="1"><thead><tr><th>Name</th><th>Age</th><th>City</th></tr></thead><tbody id="tableBody"></tbody></table>`;
+      const tableBody = p19Preview.querySelector('#tableBody');
+      if(tableBody) {
+        const row = document.createElement('tr');
+        ['Name','Age','City'].forEach(text => {
+          const td = document.createElement('td');
+          td.textContent = text;
+          row.appendChild(td);
+        });
+        tableBody.appendChild(row);
+      }
+
+      // Problem 20
+      const p20Preview = document.getElementById('p20-preview');
+      p20Preview.innerHTML += `<div id="boxContainer"></div>`;
+      const boxContainer = p20Preview.querySelector('#boxContainer');
+      if(boxContainer) {
+        for(let i=1;i<=5;i++){
+          const box = document.createElement('div');
+          box.textContent = 'Box ' + i;
+          box.className = 'box';
+          box.style.border = '1px solid black';
+          box.style.padding = '5px';
+          box.style.margin = '5px 0';
+          boxContainer.appendChild(box);
+        }
+      }
+    });
+  </script>
+
 </body>
 </html>
