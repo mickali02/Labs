@@ -71,24 +71,17 @@
       </div>
     </div>
 
-    <!-- HTML for this problem -->
     <div id="output"></div>
   </div>
 
   <script>
-    // Write your JavaScript code here
-    // 1. Create a new paragraph element in memory
     const newParagraph = document.createElement('p');
 
-    // 2. Set its text content
     newParagraph.textContent = 'Hello, World!';
 
-    // 3. Select the div where we want to add the new element
     const outputDiv = document.querySelector('#output');
 
-    // 4. Check if the target div was actually found
     if (outputDiv) {
-      // 5. If it exists, it's safe to append the new paragraph
       outputDiv.appendChild(newParagraph);
     } else {
       console.error("Error: The container element with ID 'output' was not found.");

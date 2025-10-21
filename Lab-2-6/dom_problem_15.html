@@ -81,28 +81,20 @@
   </div>
 
  <script>
-    // 1. Select the parent list where items will be added
     const list = document.querySelector('#todoList');
 
-    // 2. Check if the list element was found before proceeding
     if (list) {
-      // Define the content for the list items in an array
       const itemsToCreate = ['Item 1', 'Item 2', 'Item 3'];
       
-      // 3. Loop through the array to create and append each item
       itemsToCreate.forEach(textContent => {
-        // Create a new <li> element
         const newItem = document.createElement('li');
         
-        // Set its text content
         newItem.textContent = textContent;
         
-        // Append it to the list
         list.appendChild(newItem);
       });
 
     } else {
-      // 4. If the list element isn't found, log an error for debugging
       console.error("Error: Container element with ID 'todoList' not found.");
     }
   </script>

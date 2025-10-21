@@ -85,17 +85,12 @@
   </div>
 
   <script>
-    // 1. Select the ul element by its ID
     const list = document.querySelector('#myList');
 
-    // 2. Check if the list element was actually found
     if (list) {
-      // 3. If the list exists, then access its first child element
       const firstItem = list.firstElementChild;
       
-      // 4. Check if the first child element was found (i.e., the list is not empty)
       if (firstItem) {
-        // 5. If both exist, it is now safe to change the text content
         firstItem.textContent = 'First Item (Modified)';
       } else {
         console.warn("Warning: The list with ID 'myList' was found, but it has no child elements.");

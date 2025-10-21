@@ -88,14 +88,10 @@
   </div>
 
   <script>
-      // 1. Select all <li> elements by their tag name
+     
       const listItems = document.querySelectorAll('li');
-
-      // 2. Check if the NodeList is not empty by checking its length
       if (listItems.length > 0) {
-        // 3. If elements were found, loop through each one
         listItems.forEach(item => {
-          // 4. Add the 'list-item' class to each item
           item.classList.add('list-item');
         });
       } else {

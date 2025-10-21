@@ -86,29 +86,22 @@
   </div>
 
   <script>
- // 1. Create all necessary elements in memory
     const cardDiv = document.createElement('div');
     const titleElement = document.createElement('h3');
     const descriptionElement = document.createElement('p');
     
-    // 2. Configure the elements
     cardDiv.className = 'card';
     titleElement.textContent = 'Title';
     descriptionElement.textContent = 'Description';
     
-    // 3. Build the card's inner structure in memory
     cardDiv.appendChild(titleElement);
     cardDiv.appendChild(descriptionElement);
     
-    // 4. Select the final destination on the page
     const cardsContainer = document.querySelector('#cards');
     
-    // 5. Check if the destination container was found
     if (cardsContainer) {
-      // 6. If it exists, append the fully built card to the page
       cardsContainer.appendChild(cardDiv);
     } else {
-      // 7. If not found, log an error for easier debugging
       console.error("Error: Container element with ID 'cards' not found.");
     }
 

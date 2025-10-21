@@ -85,20 +85,13 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-    // 1. Select the section element by its ID
     const contentSection = document.querySelector('#content');
 
-    // 2. Check if the section element was actually found
     if (contentSection) {
-      // 3. If it exists, find all paragraphs ONLY within that section
       const paragraphsInSection = contentSection.querySelectorAll('p');
       
-      // 4. Check if the NodeList is not empty (i.e., its length is greater than 0)
       if (paragraphsInSection.length > 0) {
-        // 5. If paragraphs were found, loop through them
         paragraphsInSection.forEach(p => {
-          // 6. Change the color of each paragraph to purple
           p.style.color = 'purple';
         });
       } else {

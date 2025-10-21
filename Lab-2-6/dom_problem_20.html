@@ -87,25 +87,18 @@
   </div>
 
 <script>
-    // 1. Select the parent container where the boxes will be added
     const boxContainer = document.querySelector('#boxContainer');
 
-    // 2. Check if the container was actually found before attempting to add to it
     if (boxContainer) {
-      // 3. Loop 5 times to create 5 boxes
       for (let i = 1; i <= 5; i++) {
-        // a. Create a new div element in each iteration
         const newBox = document.createElement('div');
         
-        // b. Set its class and dynamic text content
         newBox.className = 'box';
-        newBox.textContent = `Box ${i}`; // Using a template literal is a modern way to do this
+        newBox.textContent = `Box ${i}`; 
         
-        // c. Append the new box to the container
         boxContainer.appendChild(newBox);
       }
     } else {
-      // 4. If the container wasn't found, log an error for debugging
       console.error("Error: Container element with ID 'boxContainer' not found.");
     }
   </script>

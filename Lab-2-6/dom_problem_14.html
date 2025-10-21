@@ -82,20 +82,15 @@
   </div>
 
   <script>
-    // 1. Create a new div element
     const newCard = document.createElement('div');
 
-    // 2. Configure its attributes and content
     newCard.id = 'card';
     newCard.className = 'product-card';
     newCard.textContent = 'Product Name';
 
-    // 3. Select the parent container
     const container = document.querySelector('#container');
 
-    // 4. Check if the container element was actually found
     if (container) {
-      // 5. If it exists, it's safe to append the new card
       container.appendChild(newCard);
     } else {
       console.error("Error: The container element with ID 'container' was not found.");

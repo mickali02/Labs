@@ -87,19 +87,13 @@
   </div>
 
   <script>
-    // 1. Select the parent div by its ID
     const parentElement = document.querySelector('#parent');
 
-    // 2. Check if the parent element was actually found
     if (parentElement) {
-      // 3. Access its HTMLCollection of children
       const children = parentElement.children;
       
-      // 4. Check if the HTMLCollection is not empty (length > 0)
       if (children.length > 0) {
-        // 5. If it's not empty, loop through the collection of children
         for (const child of children) {
-          // 6. Add the 'child-item' class to each child
           child.classList.add('child-item');
         }
       } else {
