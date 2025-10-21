@@ -78,15 +78,25 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-       // 1. Select the element with the class 'middle'
+    // 1. Select the element with the class 'middle'
     const middleElement = document.querySelector('.middle');
-    
-    // 2. Find its previous sibling that is an element
-    const firstElement = middleElement.previousElementSibling;
-    
-    // 3. Add a red border to that sibling
-    firstElement.style.border = '3px solid red';
+
+    // 2. Check if the 'middleElement' was actually found
+    if (middleElement) {
+      // 3. If it exists, then try to find its previous sibling
+      const firstElement = middleElement.previousElementSibling;
+
+      // 4. Check if the 'firstElement' (the sibling) was also found
+      if (firstElement) {
+        // 5. Only if both elements exist is it safe to modify the style
+        firstElement.style.border = '3px solid red';
+      } else 
+      {
+        console.warn("Warning: The '.middle' element was found, but it has no previous element sibling.");
+      }
+    } else {
+      console.error("Error: Element with class 'middle' not found.");
+    }
 
   </script>
 </body>

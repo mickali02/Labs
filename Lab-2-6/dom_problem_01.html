@@ -77,12 +77,16 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-    // 1. Select the element with the ID 'main-title'
-    const titleElement = document.querySelector('#main-title');
+  // 1. Select the element with the ID 'main-title'
+  const titleElement = document.querySelector('#main-title');
 
-    // 2. Change its text content to the new title
+  // 2. Check if the element was actually found before trying to modify it
+  if (titleElement) {
+    // 3. If it exists, change its text content to the new title
     titleElement.textContent = 'DOM Selection Master';
+  } else {
+    console.error("Error: Element with ID 'main-title' not found.");
+  }
 
   </script>
 </body>

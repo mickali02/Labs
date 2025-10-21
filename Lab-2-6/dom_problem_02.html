@@ -77,15 +77,19 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-        // 1. Select all elements with the class 'highlight'
+    // 1. Select all elements with the class 'highlight'
     const highlightedElements = document.querySelectorAll('.highlight');
-    
-    // 2. Loop through each element in the collection
-    highlightedElements.forEach(element => {
-      // 3. Change the background color of each element to yellow
-      element.style.backgroundColor = 'yellow';
-    });
+
+    // 2. Check if the NodeList is not empty (i.e., its length is greater than 0)
+    if (highlightedElements.length > 0) {
+      // 3. If it's not empty, loop through each element
+      highlightedElements.forEach(element => {
+        // 4. Change the background color of each element to yellow
+        element.style.backgroundColor = 'yellow';
+      });
+    } else {
+      console.warn("Warning: No elements with the class 'highlight' were found.");
+    }
     
   </script>
 </body>

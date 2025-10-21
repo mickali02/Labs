@@ -81,16 +81,26 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-        // 1. Select the element with the id 'deep'
+    // 1. Select the element with the id 'deep'
     const deepElement = document.querySelector('#deep');
-    
-    // 2. Find its closest ancestor with the class 'container'
-    const containerAncestor = deepElement.closest('.container');
-    
-    // 3. Change the background color of that ancestor
-    containerAncestor.style.backgroundColor = 'lightblue';
 
+    // 2. Check if the 'deepElement' was actually found
+    if (deepElement) {
+      // 3. If it exists, then find its closest ancestor with the class 'container'
+      const containerAncestor = deepElement.closest('.container');
+      
+      // 4. Check if a matching ancestor was found
+      if (containerAncestor) {
+        // 5. If both elements exist, it is now safe to change the background color
+        containerAncestor.style.backgroundColor = 'lightblue';
+      } else 
+      {
+        console.warn("Warning: The '#deep' element was found, but it has no ancestor with the class 'container'.");
+      }
+    } else 
+    {
+      console.error("Error: Element with id 'deep' not found.");
+    }
   </script>
 </body>
 </html>

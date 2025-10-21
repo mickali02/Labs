@@ -80,9 +80,8 @@
     <div id="gallery"></div>
   </div>
 
-  <script>
-    // Write your JavaScript code here
-        // 1. Create a new image element
+<script>
+    // 1. Create a new image element in memory
     const newImage = document.createElement('img');
     
     // 2. Configure its attributes
@@ -90,12 +89,18 @@
     newImage.alt = 'Placeholder';
     newImage.width = 150;
     
-    // 3. Select the gallery container
+    // 3. Select the gallery container on the page
     const galleryContainer = document.querySelector('#gallery');
     
-    // 4. Append the image to the gallery
-    galleryContainer.appendChild(newImage);
-
+    // 4. Check if the gallery container was actually found
+    if (galleryContainer) {
+      // 5. If it exists, it's safe to append the new image
+      galleryContainer.appendChild(newImage);
+    } else {
+      // 6. If not found, log an error for easier debugging
+      console.error("Error: Container element with ID 'gallery' not found.");
+    }
   </script>
+
 </body>
 </html>

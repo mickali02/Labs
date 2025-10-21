@@ -85,15 +85,26 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-        // 1. Select the button by its ID
+    // 1. Select the button by its ID
     const buttonElement = document.querySelector('#myBtn');
-    
-    // 2. Find its direct parent element
-    const parentDiv = buttonElement.parentElement;
-    
-    // 3. Add the 'btn-container' class to the parent
-    parentDiv.classList.add('btn-container');
+
+    // 2. Check if the button was actually found
+    if (buttonElement) {
+      // 3. If the button exists, then find its direct parent
+      const parentDiv = buttonElement.parentElement;
+
+      // 4. Check that the parent element also exists
+      if (parentDiv) {
+        // 5. If both exist, it's safe to add the class
+        parentDiv.classList.add('btn-container');
+      } else 
+      {
+        console.warn("Warning: The button with ID 'myBtn' was found, but it does not have a parent element.");
+      }
+    } else 
+    {
+      console.error("Error: Button with ID 'myBtn' not found.");
+    }
 
   </script>
 </body>

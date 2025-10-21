@@ -79,15 +79,34 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-        // 1. Select the element by its ID
-    const childElement = document.querySelector('#child');
+// 1. Select the element by its ID
+const childElement = document.querySelector('#child');
+
+// 2. Check if the child element was actually found
+if (childElement) {
+  // 3. If the child exists, then find its parent
+  const parentElement = childElement.parentElement;
+  
+  // 4. Check if the parent element was found
+  if (parentElement) {
+    // 5. If the parent exists, then find the grandparent
+    const grandparentElement = parentElement.parentElement;
     
-    // 2. Go up two parent levels by chaining .parentElement
-    const grandparentElement = childElement.parentElement.parentElement;
-    
-    // 3. Set the border of the grandparent element
-    grandparentElement.style.border = '2px solid orange';
+    // 6. Check if the grandparent element was found
+    if (grandparentElement) {
+      // 7. Only if every element in the chain exists is it safe to set the border
+      grandparentElement.style.border = '2px solid orange';
+    } else 
+    {
+      console.warn("Warning: The grandparent element could not be found.");
+    }
+  } else 
+  {
+    console.warn("Warning: The parent element of #child could not be found.");
+  }
+} else {
+  console.error("Error: Element with id 'child' not found.");
+}
 
   </script>
 </body>

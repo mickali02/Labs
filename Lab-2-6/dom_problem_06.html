@@ -79,21 +79,36 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-        // 1. Select the element with the id 'target'
+    // 1. Select the element with the id 'target'
     const targetElement = document.querySelector('#target');
-    
-    // 2. Find its previous and next siblings
-    const prevSibling = targetElement.previousElementSibling;
-    const nextSibling = targetElement.nextElementSibling;
-    
-    // 3. Change the color of the previous sibling
-    prevSibling.style.color = 'blue';
-    
-    // 4. Change the color of the next sibling
-    nextSibling.style.color = 'green';
 
+    // 2. Check if the main target element was found
+    if (targetElement) {
+      // 3. Find its previous sibling
+      const prevSibling = targetElement.previousElementSibling;
+      
+      // 4. Check if the previous sibling exists before changing its color
+      if (prevSibling) {
+        prevSibling.style.color = 'blue';
+      } else {
+        // Optional: Log a warning if the previous sibling is missing
+        console.warn("Warning: Target element found, but it has no previous element sibling.");
+      }
 
+      // 5. Find its next sibling
+      const nextSibling = targetElement.nextElementSibling;
+      
+      // 6. Check if the next sibling exists before changing its color
+      if (nextSibling) {
+        nextSibling.style.color = 'green';
+      } else 
+      {
+        console.warn("Warning: Target element found, but it has no next element sibling.");
+      }
+    } else
+     {
+      console.error("Error: Element with id 'target' not found.");
+    }
   </script>
 </body>
 </html>

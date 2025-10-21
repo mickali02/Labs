@@ -88,15 +88,25 @@
     // Write your JavaScript code here
     // 1. Select the section element by its ID
     const contentSection = document.querySelector('#content');
-    
-    // 2. Find all paragraphs ONLY within that section
-    const paragraphsInSection = contentSection.querySelectorAll('p');
-    
-    // 3. Loop through the found paragraphs
-    paragraphsInSection.forEach(p => {
-      // 4. Change the color of each paragraph to purple
-      p.style.color = 'purple';
-    });
+
+    // 2. Check if the section element was actually found
+    if (contentSection) {
+      // 3. If it exists, find all paragraphs ONLY within that section
+      const paragraphsInSection = contentSection.querySelectorAll('p');
+      
+      // 4. Check if the NodeList is not empty (i.e., its length is greater than 0)
+      if (paragraphsInSection.length > 0) {
+        // 5. If paragraphs were found, loop through them
+        paragraphsInSection.forEach(p => {
+          // 6. Change the color of each paragraph to purple
+          p.style.color = 'purple';
+        });
+      } else {
+        console.warn("Warning: The '#content' section was found, but it contains no paragraph elements.");
+      }
+    } else {
+      console.error("Error: Element with ID 'content' not found.");
+    }
 
   </script>
 </body>

@@ -79,16 +79,24 @@
   </div>
 
   <script>
-    // Write your JavaScript code here
-        // 1. Select the element with the id 'second'
+    // 1. Select the element with the id 'second'
     const secondElement = document.querySelector('#second');
-    
-    // 2. Find its next sibling that is an element
-    const thirdElement = secondElement.nextElementSibling;
-    
-    // 3. Change the text content of that sibling
-    thirdElement.textContent = "I'm the third item!";
-    
+
+    // 2. Check if the 'secondElement' was actually found
+    if (secondElement) {
+      // 3. If it was found, then try to find its next sibling
+      const thirdElement = secondElement.nextElementSibling;
+
+      // 4. Check if the 'thirdElement' (the sibling) was found
+      if (thirdElement) {
+        // 5. If both were found, it's now safe to change the text
+        thirdElement.textContent = "I'm the third item!";
+      } else {
+        console.error("Error: Element with id 'second' was found, but it has no next element sibling.");
+      }
+    } else {
+      console.error("Error: Element with id 'second' not found.");
+    }
 
   </script>
 </body>

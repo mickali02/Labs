@@ -75,10 +75,8 @@
     <!-- HTML for this problem -->
     <div id="btnContainer"></div>
   </div>
-
-  <script>
-    // Write your JavaScript code here
-        // 1. Create a new button element
+ <script>
+    // 1. Create a new button element in memory
     const newButton = document.createElement('button');
     
     // 2. Configure its text and ID
@@ -90,12 +88,17 @@
     newButton.style.color = 'white';
     newButton.style.padding = '10px 20px';
     
-    // 4. Select the container
+    // 4. Select the container on the page
     const btnContainer = document.querySelector('#btnContainer');
     
-    // 5. Append the button to the container
-    btnContainer.appendChild(newButton);
-
+    // 5. Check if the container was actually found
+    if (btnContainer) {
+      // 6. If it exists, it's safe to append the new button
+      btnContainer.appendChild(newButton);
+    } else {
+      // 7. If not found, log an error for easier debugging
+      console.error("Error: Container element with ID 'btnContainer' not found.");
+    }
   </script>
 </body>
 </html>
