@@ -9,3 +9,11 @@ const itemList = document.getElementById('item-list');
 // HINT: Use .remove() to delete the item from the DOM
 
 // Your code here:
+itemList.addEventListener('click', function(e) {
+    if (e.target.classList.contains('delete-btn')) {
+        const itemToDelete = e.target.closest('.item');
+        if (itemToDelete) {
+            itemToDelete.remove();
+        }
+    }
+});

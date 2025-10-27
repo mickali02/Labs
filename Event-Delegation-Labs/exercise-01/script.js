@@ -14,3 +14,10 @@ let clickCount = 0;
 // HINT: Update the clickCountDisplay.textContent with the new count
 
 // Your code here:
+buttonContainer.addEventListener('click', function(event) {
+    if (event.target.tagName === 'BUTTON') {
+        clickCount++;
+        clickCountDisplay.textContent = clickCount;
+    }
+});
+
