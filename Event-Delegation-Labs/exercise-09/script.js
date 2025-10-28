@@ -14,6 +14,21 @@ let cart = []; // Array to store cart items: {name, price, quantity}
 // HINT: Call updateCartDisplay() after modifying cart
 
 // Your code here for Part 1:
+productList.addEventListener('click', function(event) {
+    if (event.target.classList.contains('add-to-cart')) {
+        const productElement = event.target.closest('.product');
+        const productName = productElement.getAttribute('data-name');
+        const productPrice = parseFloat(productElement.getAttribute('data-price'));
+        const existingItem = cart.find(item => item.name === productName);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name: productName, price: productPrice, quantity: 1 });
+        }
+        updateCartDisplay();
+    }
+});
 
 
 // TODO Part 2: Handle cart actions (increase, decrease, remove) using event delegation on cartItems
@@ -24,6 +39,28 @@ let cart = []; // Array to store cart items: {name, price, quantity}
 // HINT: Call updateCartDisplay() after each action
 
 // Your code here for Part 2:
+cartItems.addEventListener('click', function(event) {
+    const itemName = event.target.getAttribute('data-name');
+    if (event.target.classList.contains('increase')) {
+        const item = cart.find(i => i.name === itemName);
+        if (item) {
+            item.quantity += 1;
+            updateCartDisplay();
+        }
+    } else if (event.target.classList.contains('decrease')) {
+        const item = cart.find(i => i.name === itemName);
+        if (item) {
+            item.quantity -= 1;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.name !== itemName);
+            }
+            updateCartDisplay();
+        }
+    } else if (event.target.classList.contains('remove')) {
+        cart = cart.filter(i => i.name !== itemName);
+        updateCartDisplay();
+    }
+});
 
 
 // TODO Part 3: Create updateCartDisplay() function
@@ -35,5 +72,19 @@ let cart = []; // Array to store cart items: {name, price, quantity}
 
 function updateCartDisplay() {
     // Your code here:
-    
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal; 
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${item.name} - $${item.price.toFixed(2)} x ${item.quantity} = $${itemTotal.toFixed(2)}
+            <button class="increase" data-name="${item.name}">+</button>
+            <button class="decrease" data-name="${item.name}">-</button>
+            <button class="remove" data-name="${item.name}">Remove</button>
+        `;
+        cartItems.appendChild(li);
+    });
+    totalPriceDisplay.textContent = total.toFixed(2);
 }

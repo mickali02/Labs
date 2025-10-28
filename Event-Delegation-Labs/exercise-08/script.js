@@ -11,3 +11,17 @@ const tabButtons = document.getElementById('tab-buttons');
 // HINT: Add 'active' class to the matching tab pane with the same data-tab value
 
 // Your code here:
+tabButtons.addEventListener('click', function(event) {
+    const clickedElement = event.target;
+    if (clickedElement.classList.contains('tab-btn')) {
+        const tabId = clickedElement.getAttribute('data-tab');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        const tabButtons = document.querySelectorAll('.tab-btn');
+
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        clickedElement.classList.add('active');
+
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        document.querySelector(`.tab-pane[data-tab="${tabId}"]`).classList.add('active');
+    }
+});

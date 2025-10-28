@@ -16,3 +16,20 @@ const body = document.body;
 // HINT: Remove 'active' class
 
 // Your code here:
+body.addEventListener('click', function(e) {
+    // Open modals
+    if (e.target.classList.contains('open-modal-btn')) {    
+        const modalId = e.target.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        modal.classList.add('active');
+    }   
+    // Close modals with close button
+    else if (e.target.classList.contains('close-modal-btn')) {
+        const modal = e.target.closest('.modal');
+        modal.classList.remove('active');
+    }
+    // Close modals when clicking on the backdrop
+    else if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+    }
+});

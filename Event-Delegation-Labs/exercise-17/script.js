@@ -20,7 +20,28 @@ const totalQuestions = document.querySelectorAll('.question').length;
 // HINT: If all answered, show result and reset button
 
 // Your code here:
-
+quiz.addEventListener('click', (e) => {
+    if (e.target.classList.contains('answer-btn')) {
+        const question = e.target.closest('.question');
+        if (question.classList.contains('answered')) {
+            return; // Question already answered
+        }
+        const correctAnswer = question.getAttribute('data-correct');
+        const selectedAnswer = e.target.getAttribute('data-answer');
+        if (selectedAnswer === correctAnswer) {
+            e.target.classList.add('correct');
+            score++;
+        } else {
+            e.target.classList.add('wrong');
+        }
+        question.classList.add('answered');
+        answered++;
+        if (answered === totalQuestions) {
+            result.textContent = `You scored ${score} out of ${totalQuestions}`;
+            resetBtn.style.display = 'block';
+        }
+    }
+});
 
 // TODO: Handle reset
 resetBtn.addEventListener('click', () => {

@@ -11,3 +11,33 @@ const tbody = document.getElementById('table-body');
 // HINT: Clear tbody and append sorted rows
 
 // Your code here:
+const sortOrder = {};
+
+thead.addEventListener('click', function(event) {
+    const target = event.target;
+    if (!target.classList.contains('sortable')) return;
+
+    const columnName = target.getAttribute('data-column');
+    const columnMap = { name: 0, age: 1, score: 2 }; // map names to indices
+    const columnIndex = columnMap[columnName];
+
+    // Toggle sort order: default ascending
+    sortOrder[columnName] = sortOrder[columnName] === 'asc' ? 'desc' : 'asc';
+    const order = sortOrder[columnName];
+
+    const rowsArray = Array.from(tbody.querySelectorAll('tr'));
+
+    rowsArray.sort((a, b) => {
+        const aText = a.children[columnIndex].textContent;
+        const bText = b.children[columnIndex].textContent;
+        const isNumeric = !isNaN(parseFloat(aText)) && !isNaN(parseFloat(bText));
+        let comparison = isNumeric
+            ? parseFloat(aText) - parseFloat(bText)
+            : aText.localeCompare(bText);
+        return order === 'asc' ? comparison : -comparison;
+    });
+
+    // Clear tbody and append sorted rows
+    tbody.innerHTML = '';
+    rowsArray.forEach(row => tbody.appendChild(row));
+});

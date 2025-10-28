@@ -14,3 +14,17 @@ const imageCaption = document.getElementById('image-caption');
 // HINT: Add 'active' class to clicked thumbnail
 
 // Your code here:
+thumbnailContainer.addEventListener('click', function(event) {
+    const clickedElement = event.target;    
+    if (clickedElement.classList.contains('thumbnail')) {
+        const newImageSrc = clickedElement.getAttribute('data-image');
+        const newCaption = clickedElement.getAttribute('data-caption');
+        featuredImage.src = newImageSrc;
+        imageCaption.textContent = newCaption;
+        const thumbnails = thumbnailContainer.getElementsByClassName('thumbnail');
+        for (let thumb of thumbnails) {
+            thumb.classList.remove('active');
+        }   
+        clickedElement.classList.add('active');
+    }
+});

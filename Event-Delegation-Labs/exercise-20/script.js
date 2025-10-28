@@ -43,3 +43,84 @@ let gameStarted = false;
 // HINT: Remove flipped and matched classes
 
 // Your code here:
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timer++;
+        timerDisplay.textContent = timer;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+function checkForMatch() {
+    const [card1, card2] = flippedCards;
+    moves++;
+    movesDisplay.textContent = moves;
+
+    if (card1.dataset.symbol === card2.dataset.symbol) {
+        card1.classList.add('matched');
+        card2.classList.add('matched');
+        matchedPairs++;
+        pairsDisplay.textContent = matchedPairs;
+        if (matchedPairs === 6) {
+            stopTimer();
+            winMessage.textContent = `You won in ${moves} moves and ${timer} seconds! 🎉`;
+        }
+    } else {
+        setTimeout(() => {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+        }, 1000);
+    }
+
+    flippedCards = [];
+    canClick = true;
+}
+
+function shuffleCards() {
+    const cards = Array.from(gameBoard.children);
+    cards.sort(() => Math.random() - 0.5);
+    cards.forEach(card => gameBoard.appendChild(card));
+}
+
+gameBoard.addEventListener('click', (e) => {
+    const card = e.target.closest('.memory-card');
+    if (!card || !canClick || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+    if (!gameStarted) {
+        startTimer();
+        gameStarted = true;
+    }
+
+    card.classList.add('flipped');
+    flippedCards.push(card);
+
+    if (flippedCards.length === 2) {
+        canClick = false;
+        setTimeout(checkForMatch, 500);
+    }
+});
+
+newGameBtn.addEventListener('click', () => {
+    flippedCards = [];
+    matchedPairs = 0;
+    moves = 0;
+    timer = 0;
+    canClick = true;
+    gameStarted = false;
+
+    movesDisplay.textContent = moves;
+    pairsDisplay.textContent = matchedPairs;
+    timerDisplay.textContent = timer;
+    winMessage.textContent = '';
+
+    document.querySelectorAll('.memory-card').forEach(card => {
+        card.classList.remove('flipped', 'matched');
+    });
+
+    stopTimer();
+    shuffleCards();
+});

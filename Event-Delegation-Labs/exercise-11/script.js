@@ -14,7 +14,23 @@ const addBtn = document.getElementById('add-btn');
 
 addBtn.addEventListener('click', () => {
     // Your code here:
-    
+    const todoText = todoInput.value.trim();
+    const selectedCategory = categorySelect.value;
+
+    if (todoText && selectedCategory) {
+        const categoryElement = todoContainer.querySelector(`[data-category="${selectedCategory}"]`);
+        if (categoryElement) {
+            const todoItem = document.createElement('div');
+            todoItem.classList.add('todo-item');
+            todoItem.innerHTML = `
+                <span>${todoText}</span>
+                <button class="complete-btn">Complete</button>
+                <button class="delete-btn">Delete</button>
+            `;
+            categoryElement.querySelector('.todo-list').appendChild(todoItem);
+            todoInput.value = '';
+        }
+    }
 });
 
 // TODO Part 2: Handle todo actions using event delegation on todoContainer
@@ -23,3 +39,23 @@ addBtn.addEventListener('click', () => {
 // HINT: If delete-btn clicked: remove the parent .todo-item
 
 // Your code here:
+todoContainer.addEventListener('click', (event) => {    
+    const clickedElement = event.target;    
+    if (clickedElement.classList.contains('complete-btn')) {
+        const todoItem = clickedElement.parentElement;
+        todoItem.classList.toggle('completed');
+
+        // visually show it’s done (JS only)
+        if (todoItem.classList.contains('completed')) {
+            todoItem.style.textDecoration = 'line-through';
+            todoItem.style.opacity = '0.6';
+        } else {
+            todoItem.style.textDecoration = 'none';
+            todoItem.style.opacity = '1';
+        }
+    } else if (clickedElement.classList.contains('delete-btn')) {
+        const todoItem = clickedElement.parentElement;
+        todoItem.remove();
+    }
+
+});

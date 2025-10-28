@@ -12,3 +12,32 @@ const board = document.querySelector('.board');
 // HINT: Update buttons on card based on new position
 
 // Your code here:
+board.addEventListener('click', function(event) {
+    if (event.target.classList.contains('move-btn')) {
+        const direction = event.target.getAttribute('data-direction');
+        const card = event.target.closest('.card');
+        const currentColumn = card.closest('.column');
+        const currentStatus = currentColumn.getAttribute('data-status');
+        let targetStatus;
+
+        if (direction === 'left') {
+            if (currentStatus === 'in-progress') {
+                targetStatus = 'todo';
+            } else if (currentStatus === 'done') {
+                targetStatus = 'in-progress';
+            }   
+        } else if (direction === 'right') {
+            if (currentStatus === 'todo') {
+                targetStatus = 'in-progress';
+            } else if (currentStatus === 'in-progress') {
+                targetStatus = 'done';
+            }
+        }
+
+        if (targetStatus) {
+            const targetColumn = board.querySelector(`.column[data-status="${targetStatus}"] .cards`);
+            targetColumn.appendChild(card);
+        }
+    }
+});
+
